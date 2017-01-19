@@ -52,27 +52,51 @@ public class pathFinder{
 		dfs();
 		shortestPath();
 	}
-	public boolean visisted(boolean mat[]){
+	public static boolean visisted(boolean mat[]){
 		int n = mat.length;
 		for(int t = 1 ;t < n;t++)
 				if(!mat[t])return false;
 		return true;
 	}
 	
-	public void shortestPath(){
+	public static int getMin(boolean visited[],int dist[]){
+		int minI = 0;
+		for(int i = 1;i < dist.length;i++){
+			if(!visited[i]){
+				if(dist[i] < dist[minI])
+					minI = i;
+			}
+		}
+		return minI;
+	}
+	
+	public static void printSP(int parent[],int d){
+		if(d == source)return;
+		printSP(parent,parent[d]);
+		System.out.print(d+" --> ");
+	}
+	
+	public static void shortestPath(){
 		int parent[] = new int[n+1];
 		int dist[] = new int[n+1];
-		boolean visited[] = new boolean[n+];
-		for(int i =0 ;i <= n;i++){
+		boolean visited[] = new boolean[n+1];
+		for(int i = 0 ;i <= n;i++){
 			parent[i] = -1;
 			dist[i] = Integer.MAX_VALUE;
 		}
 		dist[source] = 0;
 		while(!visited(visited)){
-			
-			
+			int u = getMin(visited,dist);
+			for(Edge edge : graph.get(u-1)){
+				int v = edge.node;
+				if(dist[v] > dist[u] + edge.wt){
+					dist[v] = dist[u] + edge.wt;
+					parent[v] = u;
+				}
+			}
 		}
-		
+		// Using Parent print the shortest path
+		printSP(parent,dest);
 	}
 	
 	public static void dfs(){
