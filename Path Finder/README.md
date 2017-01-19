@@ -1,5 +1,5 @@
-# AI_PathFinder
-PathFinder Assignmnet
+# PathFinder
+Path Finder Assignmnet
 
 # First AI Assignment
 It's our first AI assignment. Given a map our task is to find a corresponding location 
@@ -11,7 +11,7 @@ from a given location. We need to do this using BFS, DFS, Shortest Path, Shortes
 
 	First line contains 'n' a numerical value, i.e number of nodes in the graph.
 	Following n lines are as:
-			For the i(th) line put the nodes connected to it and corresponding wt.
+	For the i(th) line put the nodes connected to it and corresponding wt.
 	Sample input: 
 	3
 	2 1 3 5
