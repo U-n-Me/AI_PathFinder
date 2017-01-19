@@ -50,8 +50,31 @@ public class pathFinder{
 		dest = in.nextInt();
 		bfs();
 		dfs();
-		//shortestPath();
+		shortestPath();
 	}
+	public boolean visisted(boolean mat[]){
+		int n = mat.length;
+		for(int t = 1 ;t < n;t++)
+				if(!mat[t])return false;
+		return true;
+	}
+	
+	public void shortestPath(){
+		int parent[] = new int[n+1];
+		int dist[] = new int[n+1];
+		boolean visited[] = new boolean[n+];
+		for(int i =0 ;i <= n;i++){
+			parent[i] = -1;
+			dist[i] = Integer.MAX_VALUE;
+		}
+		dist[source] = 0;
+		while(!visited(visited)){
+			
+			
+		}
+		
+	}
+	
 	public static void dfs(){
 		boolean visited[] = new boolean[n+1];
 		System.out.println("... Depth First Search ...");
